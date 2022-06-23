@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-lucario.css">
+	<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Primary Meta Tags -->
+<title>Настраиваем Docker и разбираемся с его назначением</title>
+<meta name="title" content="Настраиваем Docker и разбираемся с его назначением">
+<meta name="description" content="We do a little containerization">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url">
+<meta property="og:title" content="Настраиваем Docker и разбираемся с его назначением">
+<meta property="og:description" content="We do a little containerization">
+<meta property="og:image" content="https://astro.build/social.png?v=1">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url">
+<meta property="twitter:title" content="Настраиваем Docker и разбираемся с его назначением">
+<meta property="twitter:description" content="We do a little containerization">
+<meta property="twitter:image" content="https://astro.build/social.png?v=1">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;700&display=swap">
+<link rel="stylesheet" href="/Leniorko.github.io/assets/e3b0c442.14e87ade.css" />
+<link rel="stylesheet" href="/Leniorko.github.io/assets/fdda0105.e88b55e3.css" /><style>astro-island, astro-fragment { display: contents; }</style>
+</head>
+
+<body>
+	<header class="wrapper astro-E3ORGF7E">
+	<article class="astro-E3ORGF7E">
+		<h1 class="astro-E3ORGF7E">
+			<a href="/" class="astro-E3ORGF7E">
+				<svg class="logo astro-E3ORGF7E" width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<style>
+						#flame {
+							fill: #ff5d01;
+						}
+
+						#a {
+							fill: #000014;
+						}
+					</style>
+					<title>Logo</title>
+					<path id="a" fill-rule="evenodd" clip-rule="evenodd" d="M163.008 18.929c1.944 2.413 2.935 5.67 4.917 12.181l43.309 142.27a180.277 180.277 0 00-51.778-17.53l-28.198-95.29a3.67 3.67 0 00-7.042.01l-27.857 95.232a180.225 180.225 0 00-52.01 17.557l43.52-142.281c1.99-6.502 2.983-9.752 4.927-12.16a15.999 15.999 0 016.484-4.798c2.872-1.154 6.271-1.154 13.07-1.154h31.085c6.807 0 10.211 0 13.086 1.157a16.004 16.004 0 016.487 4.806z" class="astro-E3ORGF7E">
+					</path>
+					<path id="flame" fill-rule="evenodd" clip-rule="evenodd" d="M168.19 180.151c-7.139 6.105-21.39 10.268-37.804 10.268-20.147 0-37.033-6.272-41.513-14.707-1.602 4.835-1.961 10.367-1.961 13.902 0 0-1.056 17.355 11.015 29.426 0-6.268 5.081-11.349 11.349-11.349 10.743 0 10.731 9.373 10.721 16.977v.679c0 11.542 7.054 21.436 17.086 25.606a23.27 23.27 0 01-2.339-10.2c0-11.008 6.463-15.107 13.974-19.87 5.976-3.79 12.616-8.001 17.192-16.449a31.024 31.024 0 003.743-14.82c0-3.299-.513-6.479-1.463-9.463z" class="astro-E3ORGF7E">
+					</path>
+				</svg>
+				<span class="astro-E3ORGF7E">Leniorko's Place</span>
+			</a>
+		</h1>
+	</article>
+</header>
+	<div class="wrapper">
+		<div class="layout astro-2VGL4C7L">
+	<article class="content astro-2VGL4C7L">
+		<div class="astro-2VGL4C7L">
+			<header class="astro-2VGL4C7L">
+				
+				<p class="publish-date astro-2VGL4C7L">2021</p>
+				<h1 class="title astro-2VGL4C7L">Настраиваем Docker и разбираемся с его назначением</h1>
+				<!-- <Author name="@FredKSchott" href="https://twitter.com/FredKSchott" /> -->
+			</header>
+			<main class="astro-2VGL4C7L">
+				<p>В этом тексте я настраиваю докер контейнеры для разработки прошу учесть что я сам ещё изучаю технологию и вообще большая часть всего что здесь написано взято откуда-то из интернета. Я учусь прямо пока пишу этот текст и пытаюсь обновлять его в связи со всеми «ой, я тут не совсем точно написал» или «чёрт, это не работает», которые я замечаю. Но я мог что-то упустить.</p><p>Ну и да. Данные контейнеры точно не для того что бы их использовать на рабочем сервере. Такие нужно настраивать отдельно.</p><h2 id="подготовка">Подготовка</h2><p>Перед тем как перейти к настройке Docker нужно создать хоть какой-то начальный проект. Буду делать это профессионально при помощи командной строки.</p><script>(self.Astro=self.Astro||{}).only=a=>{(async()=>await(await a())())()};var o;{const a={0:t=>t,1:t=>JSON.parse(t,n),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,n)),5:t=>new Set(JSON.parse(t,n)),6:t=>BigInt(t),7:t=>new URL(t)},n=(t,e)=>{if(t===""||!Array.isArray(e))return e;const[r,s]=e;return r in a?a[r](s):void 0};customElements.get("astro-island")||customElements.define("astro-island",(o=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement?.closest("astro-island[ssr]"))return;let e=null,r=this.querySelector("astro-fragment");if(r==null&&this.hasAttribute("tmpl")){let i=this.querySelector("template[data-astro-template]");i&&(e=i.innerHTML,i.remove())}else r&&(e=r.innerHTML);const s=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),n):{};this.hydrator(this)(this.Component,s,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}async connectedCallback(){window.addEventListener("astro:hydrate",this.hydrate),await import(this.getAttribute("before-hydration-url"));const e=JSON.parse(this.getAttribute("opts"));Astro[this.getAttribute("client")](async()=>{const r=this.getAttribute("renderer-url"),[s,{default:i}]=await Promise.all([import(this.getAttribute("component-url")),r?import(r):()=>()=>{}]);return this.Component=s[this.getAttribute("component-export")||"default"],this.hydrator=i,this.hydrate},e,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},o.observedAttributes=["props"],o))}</script><astro-island uid="2maCpz" component-url="/Leniorko.github.io/SimpleCarousel.2162d478.js" component-export="default" renderer-url="/Leniorko.github.io/client.77143440.js" props="{&quot;carouselItemData&quot;:[1,&quot;[[0,{\&quot;url\&quot;:[0,\&quot;/assets/legacy/dockerPost/s-1-1.jpg\&quot;],\&quot;description\&quot;:[0,\&quot;Создаём нужные папки (Programming — папка где я храню все свои проекты)\&quot;]}],[0,{\&quot;url\&quot;:[0,\&quot;/assets/legacy/dockerPost/s-2-1.jpg\&quot;],\&quot;description\&quot;:[0,\&quot;Инициализируем клиент\&quot;]}],[0,{\&quot;url\&quot;:[0,\&quot;/assets/legacy/dockerPost/s-3-1.jpg\&quot;],\&quot;description\&quot;:[0,\&quot;И инициализируем сервер\&quot;]}]]&quot;]}" ssr="" client="only" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;SimpleCarousel&quot;,&quot;value&quot;:&quot;react&quot;}"></astro-island><p><img src="/assets/legacy/dockerPost/p-1.jpg" alt="Hellow, World! На Go">
+Сервер без исполняемого файла, поэтому можно добавить стандартный Hello, World! на Go.</p><p>И это, в принципе, всё что нам нужно для начала работы. При желании можно убедиться в том, что всё работает. Но я уверенный в себе чад.</p><h2 id="docker">Docker</h2><p>Докер будет главной темой данного поста. Поэтому давайте сначала разберёмся что это вообще такое.</p><h3 id="что-такое-docker">Что такое Docker?</h3><p>Докером называют «платформу» которая позволяет очень удобно создавать «контейнеры». Если понятие платформа не такое сложное, то с контейнером стоит разобраться.</p><p>Объяснение для тех, кто знаком с понятием виртуальной машины: Контейнер — это очень лёгкая виртуальная машина которая представляет из себя почти голое ядро операционной системы.</p><p>Для тех кто не знаком с понятием виртуально машины: Контейнер — это другая операционная система внутри вашей операционной системы. Только контейнер очень лёгкий и маленький (относительно вашей запущенной ОС). Он не имеет графической оболочки из-за чего вы не сможете открыть его и пользоваться им как Windows. Но с ней можно общаться при помощи текста в командной строке.</p><h3 id="а-зачем-это-надо">А зачем это надо?</h3><p>На самом деле много вариантов. Если говорить конкретно про мой проект, то мне это нужно для ускорения установки проекта на других устройствах и более удобного поднятия окружения для разработки. Потому что для установки и поднятия окружения мне нужно проделать эти команды (одна картинка — один терминал):</p><astro-island uid="l76ir" component-url="/Leniorko.github.io/SimpleCarousel.2162d478.js" component-export="default" renderer-url="/Leniorko.github.io/client.77143440.js" props="{&quot;carouselItemData&quot;:[1,&quot;[[0,{\&quot;url\&quot;:[0,\&quot;/assets/legacy/dockerPost/s-2-1.jpg\&quot;],\&quot;description\&quot;:[0,\&quot;Инициализация клиента\&quot;]}],[0,{\&quot;url\&quot;:[0,\&quot;/assets/legacy/dockerPost/s-2-2.jpg\&quot;],\&quot;description\&quot;:[0,\&quot;Инициализация сервера. Я не уверен на счёт надобности второй строчки, но ладно.\&quot;]}]]&quot;]}" ssr="" client="only" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;SimpleCarousel&quot;,&quot;value&quot;:&quot;react&quot;}"></astro-island><p><strong>Примечание</strong>: на картинке с сервером есть airgolang — это инструмент позволяющий делать автоматический перезапуск работы кода при внесении изменений в код. Называется она просто air, но я у себя её переименовал что бы было более понятно.</p><p>Соответственно, для того что бы всё работало, мне нужно держать открытыми 2 терминала и каждый раз писать все эти команды, но мне лень.</p><p><img src="/assets/legacy/dockerPost/p-2.jpg" alt="Примерно что-то такое я и делаю"></p><p>Поэтому, написав несколько нужных файлов с нужными командами, мы сократим этот процесс до одной строчки.
+<img src="/assets/legacy/dockerPost/p-3.jpg" alt="Та самая строчка">
+А за сценами этой команды будет творится магия, которую мы и будем настраивать дальше. Стоит заметить, что первое исполнение команды будет долгое, так как будет выполнятся установка всех зависимостей, но последующие запуски будут происходить очень быстро так как всё будет уже установлено.</p><p>Какие ещё плюсы у такого подхода?</p><ol>
+<li>Не нужно всё устанавливать в систему. Все системные настройки будут в контейнере, а система в которой мы работаем будет нетронута. Разработку можно вести прямо из своей системы так как изменения в файлах буду автоматически переданы в контейнер (при правильной настройке). При необходимости можно зайти в контейнер и работать там напрямую (такое позволяют современные редакторы кода).</li>
+<li>Упрощается деплой на сервер. Не нужно настраивать всё на нём отдельно, устанавливать кучу всего. Можно просто запустить контейнер и он будет работать. Но, опять же, при правильной настройке.</li>
+<li>Ну и из прошлого примера можно вынести вот такой плюс: Докер обеспечивает одинаковое поведения кода на любой машине. Так как он представляет из себя целую операционную систему со своим окружением.</li>
+</ol><p>Но тут же есть один жирный минус:</p><p>На разработку в контейнерах затрачивается сильно больше ресурсов чем при локальной разработке. Забегая вперёд, скажу, что все контейнеры что я создал занимают 2.5 гигабайта, кушают 800мб оперативки (во время работы может достигать 2 гигабайт). А контейнер с клиентом нагружает 30% моего процессора. У меня ещё неплохое железо, поэтому всё это не заметно, но на более слабом железе нагрузки могут быть ощутимы.</p><h3 id="настройка-контейнеров">Настройка контейнеров</h3><p>От теории и объяснений прямо к делу. Для начала нужно поставить Docker. Если вы на Windows, дополнительно надо будет поставить WSL, если на Linux, то чуть проще. В любом случае установка не сложная, главное гуглите. <a href="https://www.docker.com/products/docker-desktop">Начинать отсюда</a>.</p><p>Забыл сказать раньше, один контейнер представляет из себя один самостоятельный сервис. То есть мы не можем запустить в одном контейнере сразу и клиент и сервер. Поэтому нам необходимо отдельно настроить клиентскую часть (React), серверную часть (Go) и базу данных (вообще не обязательно, можно использовать удалённую базу данных, благо MongoDB позволяет это сделать, но я хочу запихнуть её в контейнер).</p><p>И так, у нас имеется следующая структура:
+<img src="/assets/legacy/dockerPost/p-4.jpg" alt="Структура проекта">
+Здесь вы можете заметить dockerfile в папке с сервером и клиентом, они и используются для настройки контейнера. Данный файл не требуется для базы данных и сейчас я объясню почему.</p><h3 id="docker-hub-или-почему-контейнеризация-приложений-это-просто">Docker Hub или почему контейнеризация приложений это просто</h3><p>Как я уже говорил, контейнер — это очень лёгкий образ операционной системы. И основу для этих контейнеров нужно где-то брать. Контейнер с нуля, конечно, сделать <a href="https://docs.docker.com/develop/develop-images/baseimages/">можно</a>, но нам не нужно.</p><p>DockerHub это хостинг для образов контейнеров, если точнее, для уже готовых Dockerfile. Именно на основе контейнеров отсюда мы и будем строить наше окружение.</p><p>Для интересующихся: <a href="https://github.com/docker-library/golang/blob/94b50ae6a398dced36243c0f9034e168aa1ae833/1.16/alpine3.13/Dockerfile">Вот dockerfile контейнера для Go</a>. Благодаря dockerhub мы можем использовать его одной строчкой и уже у себя провести дополнительные настройки.</p><p>Соответственно, учитывая выбранные мной технологии, мне нужны следующие контейнеры: <a href="https://hub.docker.com/_/node">Node</a>, <a href="https://hub.docker.com/_/golang">Golang</a>, <a href="https://hub.docker.com/_/mongo?tab=description">MongoDB</a>.</p><h3 id="пишем-dockerfile">Пишем Dockerfile</h3><p>Вот содержимое моих докерфайлов:</p><astro-island uid="Z2ednzx" component-url="/Leniorko.github.io/SimpleCarousel.2162d478.js" component-export="default" renderer-url="/Leniorko.github.io/client.77143440.js" props="{&quot;carouselItemData&quot;:[1,&quot;[[0,{\&quot;url\&quot;:[0,\&quot;/assets/legacy/dockerPost/s-3-1.jpg\&quot;],\&quot;description\&quot;:[0,\&quot;Контейнер для клиента\&quot;]}],[0,{\&quot;url\&quot;:[0,\&quot;/assets/legacy/dockerPost/s-3-2.jpg\&quot;],\&quot;description\&quot;:[0,\&quot;Контейнер для сервера\&quot;]}]]&quot;]}" ssr="" client="only" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;SimpleCarousel&quot;,&quot;value&quot;:&quot;react&quot;}"></astro-island><p>их просто и честно скопипастил откуда-то из интернета.</p><p>Что же произойдёт при запуске этих файлов?</p><ol>
+<li>Докер скачает указанный родительский контейнер с DockerHub. Это самая первая строчка. FROM <имя образа></li>
+<li>Устанавливаем рабочую директорию внутри контейнера при помощи WORKDIR. Это нужно для того, что бы не было надобности каждый раз указывать абсолютный путь до папки с кодом.</li>
+<li>Копируем файлы в контейнер и устанавливаем все зависимости. COPY для копирования. RUN для запуска команд. При помощи команды RUN можно не только устанавливать нужные зависимости. Но это всё что нам надо.</li>
+<li>После чего запускаем приложение последней командой.</li>
+</ol><p>Так почему же мне не нужен Dockerfile для базы данных?</p><p>Потому что у меня нет локальной базы данных и мне не надо использовать какие-то настройки для неё. Для использования базы данных нам хватит стандартного контейнера из DockerHub. Он сам всё настроит и создаст базу данных. Но как его получить если нет Dockerfile?</p><p>Ну, вообще, при помощи командной строки. Но это не наш путь.</p><h3 id="docker-compose-или-как-мы-контейнеры-связывали">Docker-compose или как мы контейнеры связывали</h3><p>При помощи docker-compose мы можем одной командой запускать сразу несколько контейнеров. В том числе мы можем запустить просто образ с DockerHub. Более того, мы можем указать все предварительные настройки для того, что бы контейнеры могли между собой связываться и сохранять файлы проекта из контейнера в систему.</p><p>Без данного средства нужно писать большие команды в терминале. Для каждого контейнера отдельно. Выглядят они не очень приятно, поэтому я даже не буду их показывать.</p><p>Так как mongodb не требует никаких дополнительных настроек, сначала напишем настройки для неё
+<img src="/assets/legacy/dockerPost/p-5.jpg" alt="Настройка контейнера базы данных и веб интерфейса для просмотра содержимого.">
+Здесь, как мне кажется, назначение каждого ключа интуитивно понятно из названия, но давайте подробно разберём как строится docker-compose файл.
+Это .yml файл. В нём хранятся значения в виде <ключ>:<значение>
+Значения могут быть вложенные. Вложенность определяется отступами (пробелами). Так, например, в файле выше ключ services имеет два значения mongo и mongo-express. Которые в свою очередь имеют свои вложенные значения. Ключ в качестве значений содержащий другие ключи со значениями — это словарь. Некоторые ключи так же могут содержать список значений перечисленных при помощи «-».</p><p>И так, что же описывает этот файл?</p><ol>
+<li>image — родительский контейнер нашего контейнера.</li>
+<li>container_name — имя нашего контейнера</li>
+<li>restart — описывает политику перезагрузки контейнера в случае фатальной ошибки. always говорит о том, что контейнер будет перезапускаться после любой ошибки сразу же.</li>
+<li>ports — «открываем» порты контейнера для нашей машины. Указываются они в виде HOST:CONTAINER, соответственно мы можем назначить для одного порта контейнера другое значение на нашей машине. Например: 1000:2000 говорит о том, что порт 2000 у контейнера на нашей машине находится на порте 1000. Я предпочитаю не менять порт для своей машины и оставляю его таким же, как в контейнере.</li>
+<li>volumes — тут мы описывает те папки которые хотим связать с папками контейнера. То есть изменения в этой папке локально изменят её внутри контейнера и наоборот. Записываются в том же формате HOST:CONTAINER</li>
+<li>enviroment — задаём значения переменным среды. При помощи синтаксиса <code>${&lt;ИМЯ_ПЕРЕМЕННОЙ&gt;}</code> — я передаю значения из .env файла. Это нужно для тех данных, которые не следует раскрывать публично.</li>
+<li>depends_on — описывает зависимость контейнера от других контейнеров. Так мы можем изменить порядок запуска контейнеров.</li>
+</ol><p>И если сейчас мы запустим этот файл, то мы сможем перейти в mongo-express по ссылке <a href="http://localhost:8081">http://localhost:8081</a> и увидеть содержимое базы данных.
+<img src="/assets/legacy/dockerPost/p-6.jpg" alt="Панель управления монго"></p><p><strong>Примечание</strong>: База данных collegeSupportChat создана благодаря отдельным настройкам, которые нужно описывать отдельным скриптом. Эти настройки находятся в папке docker-entrypoint-initdb.d . Все js и sh из этой папки исполняются автоматически при создании контейнера. Всё что я делаю, это создаю коллекцию «users» внутри базы данных так как без неё не создаться база данных. Для этого прописана одна команда в .js файле: db.createCollection(“users”);</p><p>Теперь настроим контейнеры для клиента и сервера.
+<img src="/assets/legacy/dockerPost/p-7.jpg" alt="Панель управления монго">
+Настройка почти ни чем не отличается от mongo. Только теперь вместо image у нас build. build ищет dockerfile в указанной папке и запускает его.</p><p>Единственная проблема которая возникла — у Go не работает перезагрузка программы при изменении кода. Вообще. Но она не работает только в Windows. Проверил работу в Ubuntu 20.04 LTS и всё работает идеально. К сожалению, альтернатив air не много и большая часть из них давно не обновлялась. Поэтому… грустно. Придётся на Windows вручную перезагружать весь контейнер. Благо он маленький.</p><p>И в принципе это всё. Теперь, если мы пропишем docker-compose up в консоли у нас поднимется 4 контейнера.</p><p>База данных
+Интерфейс к базе данных
+Клиент
+Сервер
+Я не был уверен что между ними есть коммуникация, а писать код лень. Как оказалось можно использовать ping для проверки соединения межу контейнера в форме:
+<code>docker exec &lt;from&gt; ping &lt;to&gt;</code>
+Так, например, что бы проверить соединение между сервером и базой данных нужно написать:
+docker exec golang-backend ping mongo
+И если пакеты идут, значит всё хорошо.
+<img src="/assets/legacy/dockerPost/p-8.jpg" alt="Команда и её результаты"></p><p>Если же подключение делать в коде, то всё что нам нужно — использовать имя контейнера как url и указывать порт к нему. То есть, что бы подключиться из контейнера с Go к базе данных, мне нужно будет делать запрос на:
+<a href="http://mongo:27017/">http://mongo:27017/</a></p><p>И на этом настройка контейнеров закончена.</p><h2 id="заключение">Заключение</h2><p>Хоть я и говорил что настройка контейнеров дело достаточно простое, оно, всё же, имеет свои подводные камни. Так, например, пытаясь разобраться почему не работает перезагрузка в Go контейнере, я потратил несколько часов.</p><p>А знаете что самое забавное?</p><p>Я решил что не буду использовать Docker дальше. :-)</p><p>Я не хочу им пользоваться из-за отсутствия перезагрузки у Go. Да и не нужен он мне, по факту. Docker стоит использовать когда настройка окружения сложная или требуются какие-то особые настройки системы (или вообще другая ОС) или когда реально много разных контейнеров. Но учитывая то, что у меня просто клиент и сервер (базу данных буду из облака использовать) в этом нет настоящей необходимости.</p><p>Вот такие вот дела.</p><p>Ссылка на репозиторий: <a href="https://github.com/Leniorko/college-support-chat"></a></p><p>Спасибо всем кто прочёл до конца.
+Что буду писать дальше — не знаю.</p>
+			</main>
+		</div>
+	</article>
+</div>
+	</div>
+</body></html>
