@@ -7,5 +7,5 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [preact(), react()],
   site: "https://Leniorko.github.io/",
-  base: "Leniorko.github.io",
+  base: "/personal-website-core",
 });
