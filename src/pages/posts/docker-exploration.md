@@ -7,9 +7,9 @@ publishDate: 2021
 name: Иван Егоров
 value: 128
 description: We do a little containerization
-sliderOne: [{ url: "/assets/legacy/dockerPost/s-1-1.jpg", description: "Создаём нужные папки (Programming — папка где я храню все свои проекты)"}, { url: "/assets/legacy/dockerPost/s-2-1.jpg", description: "Инициализируем клиент"}, { url: "/assets/legacy/dockerPost/s-3-1.jpg", description: "И инициализируем сервер"}]
-sliderTwo: [{ url: "/assets/legacy/dockerPost/s-2-1.jpg", description: "Инициализация клиента"}, { url: "/assets/legacy/dockerPost/s-2-2.jpg", description: "Инициализация сервера. Я не уверен на счёт надобности второй строчки, но ладно."}]
-sliderThree: [{ url: "/assets/legacy/dockerPost/s-3-1.jpg", description: "Контейнер для клиента"}, { url: "/assets/legacy/dockerPost/s-3-2.jpg", description: "Контейнер для сервера"}]
+sliderOne: [{ url: "/personal-website-core/assets/legacy/dockerPost/s-1-1.jpg", description: "Создаём нужные папки (Programming — папка где я храню все свои проекты)"}, { url: "/personal-website-core/assets/legacy/dockerPost/s-2-1.jpg", description: "Инициализируем клиент"}, { url: "/personal-website-core/assets/legacy/dockerPost/s-3-1.jpg", description: "И инициализируем сервер"}]
+sliderTwo: [{ url: "/personal-website-core/assets/legacy/dockerPost/s-2-1.jpg", description: "Инициализация клиента"}, { url: "/personal-website-core/assets/legacy/dockerPost/s-2-2.jpg", description: "Инициализация сервера. Я не уверен на счёт надобности второй строчки, но ладно."}]
+sliderThree: [{ url: "/personal-website-core/assets/legacy/dockerPost/s-3-1.jpg", description: "Контейнер для клиента"}, { url: "/personal-website-core/assets/legacy/dockerPost/s-3-2.jpg", description: "Контейнер для сервера"}]
 ---
 В этом тексте я настраиваю докер контейнеры для разработки прошу учесть что я сам ещё изучаю технологию и вообще большая часть всего что здесь написано взято откуда-то из интернета. Я учусь прямо пока пишу этот текст и пытаюсь обновлять его в связи со всеми «ой, я тут не совсем точно написал» или «чёрт, это не работает», которые я замечаю. Но я мог что-то упустить.
 
@@ -21,7 +21,7 @@ sliderThree: [{ url: "/assets/legacy/dockerPost/s-3-1.jpg", description: "Кон
 
 <SimpleCarousel client:only="react" carouselItemData={frontmatter.sliderOne}/>
 
-![Hellow, World! На Go](/assets/legacy/dockerPost/p-1.jpg)
+![Hellow, World! На Go](/personal-website-core/assets/legacy/dockerPost/p-1.jpg)
 
 Сервер без исполняемого файла, поэтому можно добавить стандартный Hello, World! на Go.
 
@@ -49,11 +49,11 @@ sliderThree: [{ url: "/assets/legacy/dockerPost/s-3-1.jpg", description: "Кон
 
 Соответственно, для того что бы всё работало, мне нужно держать открытыми 2 терминала и каждый раз писать все эти команды, но мне лень.
 
-![Примерно что-то такое я и делаю](/assets/legacy/dockerPost/p-2.jpg)
+![Примерно что-то такое я и делаю](/personal-website-core/assets/legacy/dockerPost/p-2.jpg)
 
 Поэтому, написав несколько нужных файлов с нужными командами, мы сократим этот процесс до одной строчки.
 
-![Та самая строчка](/assets/legacy/dockerPost/p-3.jpg)
+![Та самая строчка](/personal-website-core/assets/legacy/dockerPost/p-3.jpg)
 
 А за сценами этой команды будет творится магия, которую мы и будем настраивать дальше. Стоит заметить, что первое исполнение команды будет долгое, так как будет выполнятся установка всех зависимостей, но последующие запуски будут происходить очень быстро так как всё будет уже установлено.
 
@@ -75,7 +75,7 @@ sliderThree: [{ url: "/assets/legacy/dockerPost/s-3-1.jpg", description: "Кон
 
 И так, у нас имеется следующая структура:
 
-![Структура проекта](/assets/legacy/dockerPost/p-4.jpg)
+![Структура проекта](/personal-website-core/assets/legacy/dockerPost/p-4.jpg)
 
 Здесь вы можете заметить dockerfile в папке с сервером и клиентом, они и используются для настройки контейнера. Данный файл не требуется для базы данных и сейчас я объясню почему.
 
@@ -118,7 +118,7 @@ DockerHub это хостинг для образов контейнеров, е
 
 Так как mongodb не требует никаких дополнительных настроек, сначала напишем настройки для неё
 
-![Настройка контейнера базы данных и веб интерфейса для просмотра содержимого.](/assets/legacy/dockerPost/p-5.jpg)
+![Настройка контейнера базы данных и веб интерфейса для просмотра содержимого.](/personal-website-core/assets/legacy/dockerPost/p-5.jpg)
 
 Здесь, как мне кажется, назначение каждого ключа интуитивно понятно из названия, но давайте подробно разберём как строится docker-compose файл.
 Это .yml файл. В нём хранятся значения в виде \<ключ\>:\<значение\>
@@ -136,13 +136,13 @@ DockerHub это хостинг для образов контейнеров, е
 
 И если сейчас мы запустим этот файл, то мы сможем перейти в mongo-express по ссылке [http://localhost:8081](http://localhost:8081) и увидеть содержимое базы данных.
 
-![Панель управления монго](/assets/legacy/dockerPost/p-6.jpg)
+![Панель управления монго](/personal-website-core/assets/legacy/dockerPost/p-6.jpg)
 
 **Примечание**: База данных collegeSupportChat создана благодаря отдельным настройкам, которые нужно описывать отдельным скриптом. Эти настройки находятся в папке docker-entrypoint-initdb.d . Все js и sh из этой папки исполняются автоматически при создании контейнера. Всё что я делаю, это создаю коллекцию «users» внутри базы данных так как без неё не создаться база данных. Для этого прописана одна команда в .js файле: db.createCollection("users");
 
 Теперь настроим контейнеры для клиента и сервера.
 
-![Панель управления монго](/assets/legacy/dockerPost/p-7.jpg)
+![Панель управления монго](/personal-website-core/assets/legacy/dockerPost/p-7.jpg)
 
 Настройка почти ни чем не отличается от mongo. Только теперь вместо image у нас build. build ищет dockerfile в указанной папке и запускает его.
 
@@ -160,7 +160,7 @@ DockerHub это хостинг для образов контейнеров, е
 docker exec golang-backend ping mongo
 И если пакеты идут, значит всё хорошо.
 
-![Команда и её результаты](/assets/legacy/dockerPost/p-8.jpg)
+![Команда и её результаты](/personal-website-core/assets/legacy/dockerPost/p-8.jpg)
 
 Если же подключение делать в коде, то всё что нам нужно — использовать имя контейнера как url и указывать порт к нему. То есть, что бы подключиться из контейнера с Go к базе данных, мне нужно будет делать запрос на:
 [http://mongo:27017/](http://mongo:27017/)
