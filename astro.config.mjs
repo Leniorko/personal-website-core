@@ -6,6 +6,6 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   integrations: [preact(), react()],
-  site: "https://Leniorko.github.io/personal-website-core/",
+  site: "https://leniorko.github.io",
   base: "/personal-website-core",
 });
