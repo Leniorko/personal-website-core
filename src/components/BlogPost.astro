@@ -12,14 +12,15 @@ export interface Props {
 const { title, author, publishDate, heroImage, alt } = Astro.props;
 ---
 
-<div class="layout">
-	<article class="content">
+<div>
+	<article class="mb-32">
 		<div>
-			<header>
-				{heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
-				<p class="publish-date">{publishDate}</p>
-				<h1 class="title">{title}</h1>
-				<!-- <Author name="@FredKSchott" href="https://twitter.com/FredKSchott" /> -->
+			<header class="flex flex-col text-center items-center justify-center pb-8 mb-8 border-b-4 border-b-gray-100">
+				{heroImage && <img width="720" height="420"
+					class="w-screen object-cover object-center mt-0 mb-4 h-64 2xl:mt-8 2xl:mb-16 2xl:max-w-7xl " loading="lazy"
+					src={heroImage} alt={alt} />}
+				<p class="m-0 text-gray-400">{publishDate}</p>
+				<h1 class="m-0 text-4xl font-bold">{title}</h1>
 			</header>
 			<main>
 				<slot />
@@ -27,62 +28,3 @@ const { title, author, publishDate, heroImage, alt } = Astro.props;
 		</div>
 	</article>
 </div>
-
-<style>
-	.hero-image {
-		width: 100vw;
-		object-fit: cover;
-		object-position: center;
-		margin-top: 2rem;
-		margin-bottom: 4rem;
-		max-width: 1280px;
-	}
-
-	@media (max-width: 50em) {
-		.hero-image {
-			height: 260px;
-			margin-top: 0;
-			margin-bottom: 2rem;
-		}
-	}
-
-	.content {
-		margin-bottom: 8rem;
-	}
-
-	.content :global(main > * + *) {
-		margin-top: 1rem;
-	}
-
-	.content :global(h2) {
-		margin-top: 4rem;
-	}
-
-	header {
-		display: flex;
-		flex-direction: column;
-		text-align: center;
-		align-items: center;
-		justify-content: center;
-
-		padding-bottom: 2rem;
-		margin-bottom: 2rem;
-		border-bottom: 4px solid var(--theme-divider);
-	}
-
-	.title,
-	.author,
-	.publish-date {
-		margin: 0;
-	}
-
-	.publish-date,
-	.author {
-		color: var(--theme-text-lighter);
-	}
-
-	.title {
-		font-size: 2.25rem;
-		font-weight: 700;
-	}
-</style>

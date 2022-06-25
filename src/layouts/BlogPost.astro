@@ -15,13 +15,46 @@ const { title, description, publishDate, author, heroImage, permalink, alt } = c
 	<BaseHead {title} {description} {permalink} />
 </head>
 
-<body>
+<body class="selection:text-[#ff5d01] selection:bg-[#ff5d01]/10">
 	<BlogHeader />
-	<div class="wrapper">
+	<div class="post-content mx-auto max-w-[65em] px-8 w-full">
 		<BlogPost {title} {author} {heroImage} {publishDate} {alt}>
 			<slot />
 		</BlogPost>
 	</div>
 </body>
+
+<style is:global>
+	h2 {
+		@apply text-3xl font-bold;
+	}
+
+	h3 {
+		@apply text-xl font-bold;
+	}
+
+	ol {
+		@apply list-decimal pb-4;
+		padding-inline-start: 40px;
+
+	}
+
+	ul {
+		@apply list-disc pb-4;
+		padding-inline-start: 40px;
+	}
+
+	p {
+		@apply pb-4;
+	}
+
+	.post-content a {
+		@apply text-[#ff5d01]/70;
+	}
+
+	.post-content a:hover {
+		@apply text-[#ff5d01] underline;
+	}
+</style>
 
 </html>

@@ -179,7 +179,7 @@ docker exec golang-backend ping mongo
 
 Вот такие вот дела.
 
-Ссылка на репозиторий: [](https://github.com/Leniorko/college-support-chat)
+Ссылка на репозиторий: [https://github.com/Leniorko/college-support-chat](https://github.com/Leniorko/college-support-chat)
 
 Спасибо всем кто прочёл до конца.
 Что буду писать дальше — не знаю.

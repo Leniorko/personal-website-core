@@ -26,49 +26,13 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 <head>
 	<BaseHead {title} {description} {permalink} />
 
-	<style>
-		header {
-			width: 100%;
-			height: 100%;
-			background-color: var(--theme-bg-offset);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.content {
-			margin-top: 4rem;
-			margin-bottom: 8rem;
-		}
-
-		.content :global(main > * + *) {
-			margin-top: 1rem;
-		}
-
-		.intro {
-			padding-bottom: 4rem;
-			margin-bottom: 2rem;
-			border-bottom: 4px solid var(--theme-divider);
-		}
-
-		.intro>* {
-			margin: 0;
-		}
-
-		.latest {
-			font-size: 2.5rem;
-			font-weight: 700;
-		}
-	</style>
-</head>
-
-<body>
+<body class="selection:text-[#ff5d01] selection:bg-[#ff5d01]/10">
 	<BlogHeader />
-	<div class="wrapper">
-		<main class="content">
-			<section class="intro">
-				<h1 class="latest">{title}</h1>
-				<p>{description}</p>
+	<div class="mx-auto max-w-[65em] px-8 w-full">
+		<main class="mt-16 mb-32">
+			<section class="pb-16 mb-8 border-b-4 border-b-gray-100">
+				<h1 class="text-4xl font-bold">{title}</h1>
+				<p class="m-0 text-xl text-gray-800">{description}</p>
 			</section>
 			<section aria-label="Blog post list">
 				{allPosts.map((p) =>
