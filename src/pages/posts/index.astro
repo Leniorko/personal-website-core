@@ -1,0 +1,46 @@
+---
+// Component Imports
+import BaseHead from "../../components/BaseHead.astro";
+import BlogHeader from "../../components/BlogHeader.astro";
+import BlogPostPreview from "../../components/BlogPostPreview.astro";
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = "Leniorko's Place";
+let description = "Long alpha is coming";
+let permalink = "https://example.com/";
+
+// Data Fetching: List all Markdown posts in the repo.
+
+let mdxPosts = await Astro.glob("./*.mdx");
+
+mdxPosts = mdxPosts.sort(
+	(a, b) =>
+		new Date(b.frontmatter.publishDate).valueOf() -
+		new Date(a.frontmatter.publishDate).valueOf()
+);
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} permalink={permalink} />
+	</head><body class="selection:text-[#ff5d01] selection:bg-[#ff5d01]/10">
+		<BlogHeader />
+		<div class="mx-auto max-w-[65em] px-8 w-full">
+			<main class="mt-16 mb-32">
+				<section class="pb-16 mb-8 border-b-4 border-b-gray-100">
+					<h1 class="text-4xl font-bold">{title}</h1>
+					<p class="m-0 text-xl text-gray-800">{description}</p>
+				</section>
+				<section aria-label="Blog post list">
+					{mdxPosts.map((p) => <BlogPostPreview post={p} />)}
+				</section>
+			</main>
+		</div>
+	</body>
+</html>

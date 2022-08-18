@@ -5,3 +5,11 @@ body {
 code {
   @apply font-code;
 }
+
+a {
+  @apply text-[#ff5d01]/70;
+}
+
+a:hover {
+  @apply text-[#ff5d01] underline;
+}
