@@ -9,4 +9,7 @@ export default defineConfig({
   integrations: [preact(), react(), tailwind()],
   site: "https://leniorko.github.io",
   base: "/personal-website-core",
+  legacy: {
+    astroFlavoredMarkdown: true,
+  },
 });
