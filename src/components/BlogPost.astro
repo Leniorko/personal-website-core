@@ -1,6 +1,4 @@
 ---
-import Author from './Author.astro';
-
 export interface Props {
 	title: string;
 	author: string;
@@ -15,10 +13,21 @@ const { title, author, publishDate, heroImage, alt } = Astro.props;
 <div>
 	<article class="mb-32">
 		<div>
-			<header class="flex flex-col text-center items-center justify-center pb-8 mb-8 border-b-4 border-b-gray-100">
-				{heroImage && <img width="720" height="420"
-					class="w-screen object-cover object-center mt-0 mb-4 h-64 2xl:mt-8 2xl:mb-16 2xl:max-w-7xl " loading="lazy"
-					src={heroImage} alt={alt} />}
+			<header
+				class="flex flex-col text-center items-center justify-center pb-8 mb-8 border-b-4 border-b-gray-100"
+			>
+				{
+					heroImage && (
+						<img
+							width="720"
+							height="420"
+							class="w-screen object-cover object-center mt-0 mb-4 h-64 2xl:mt-8 2xl:mb-16 2xl:max-w-7xl "
+							loading="lazy"
+							src={heroImage}
+							alt={alt}
+						/>
+					)
+				}
 				<p class="m-0 text-gray-400">{publishDate}</p>
 				<h1 class="m-0 text-4xl font-bold">{title}</h1>
 			</header>

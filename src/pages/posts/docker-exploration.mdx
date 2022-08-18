@@ -1,16 +1,51 @@
 ---
-setup: |
-  import Layout from '../../layouts/BlogPost.astro'
-  import SimpleCarousel from '../../components/SimpleCarousel.tsx'
-title: Настраиваем Docker и разбираемся с его назначением
+title: Настраиваем Docker и разбираемся с его назначением MDX version
 publishDate: 2021
 name: Иван Егоров
+layout: "../../layouts/BlogPost.astro"
 value: 128
 description: We do a little containerization
-sliderOne: [{ url: "/personal-website-core/assets/legacy/dockerPost/s-1-1.jpg", description: "Создаём нужные папки (Programming — папка где я храню все свои проекты)"}, { url: "/personal-website-core/assets/legacy/dockerPost/s-2-1.jpg", description: "Инициализируем клиент"}, { url: "/personal-website-core/assets/legacy/dockerPost/s-3-1.jpg", description: "И инициализируем сервер"}]
-sliderTwo: [{ url: "/personal-website-core/assets/legacy/dockerPost/s-2-1.jpg", description: "Инициализация клиента"}, { url: "/personal-website-core/assets/legacy/dockerPost/s-2-2.jpg", description: "Инициализация сервера. Я не уверен на счёт надобности второй строчки, но ладно."}]
-sliderThree: [{ url: "/personal-website-core/assets/legacy/dockerPost/s-3-1.jpg", description: "Контейнер для клиента"}, { url: "/personal-website-core/assets/legacy/dockerPost/s-3-2.jpg", description: "Контейнер для сервера"}]
+sliderOne:
+  [
+    {
+      url: "/personal-website-core/assets/legacy/dockerPost/s-1-1.jpg",
+      description: "Создаём нужные папки (Programming — папка где я храню все свои проекты)",
+    },
+    {
+      url: "/personal-website-core/assets/legacy/dockerPost/s-2-1.jpg",
+      description: "Инициализируем клиент",
+    },
+    {
+      url: "/personal-website-core/assets/legacy/dockerPost/s-3-1.jpg",
+      description: "И инициализируем сервер",
+    },
+  ]
+sliderTwo:
+  [
+    {
+      url: "/personal-website-core/assets/legacy/dockerPost/s-2-1.jpg",
+      description: "Инициализация клиента",
+    },
+    {
+      url: "/personal-website-core/assets/legacy/dockerPost/s-2-2.jpg",
+      description: "Инициализация сервера. Я не уверен на счёт надобности второй строчки, но ладно.",
+    },
+  ]
+sliderThree:
+  [
+    {
+      url: "/personal-website-core/assets/legacy/dockerPost/s-3-1.jpg",
+      description: "Контейнер для клиента",
+    },
+    {
+      url: "/personal-website-core/assets/legacy/dockerPost/s-3-2.jpg",
+      description: "Контейнер для сервера",
+    },
+  ]
 ---
+
+import SimpleCarousel from "../../components/SimpleCarousel.tsx";
+
 В этом тексте я настраиваю докер контейнеры для разработки прошу учесть что я сам ещё изучаю технологию и вообще большая часть всего что здесь написано взято откуда-то из интернета. Я учусь прямо пока пишу этот текст и пытаюсь обновлять его в связи со всеми «ой, я тут не совсем точно написал» или «чёрт, это не работает», которые я замечаю. Но я мог что-то упустить.
 
 Ну и да. Данные контейнеры точно не для того что бы их использовать на рабочем сервере. Такие нужно настраивать отдельно.
@@ -19,7 +54,7 @@ sliderThree: [{ url: "/personal-website-core/assets/legacy/dockerPost/s-3-1.jpg"
 
 Перед тем как перейти к настройке Docker нужно создать хоть какой-то начальный проект. Буду делать это профессионально при помощи командной строки.
 
-<SimpleCarousel client:only="react" carouselItemData={frontmatter.sliderOne}/>
+<SimpleCarousel carouselItemData={frontmatter.sliderOne} />
 
 ![Hellow, World! На Go](/personal-website-core/assets/legacy/dockerPost/p-1.jpg)
 
@@ -43,7 +78,7 @@ sliderThree: [{ url: "/personal-website-core/assets/legacy/dockerPost/s-3-1.jpg"
 
 На самом деле много вариантов. Если говорить конкретно про мой проект, то мне это нужно для ускорения установки проекта на других устройствах и более удобного поднятия окружения для разработки. Потому что для установки и поднятия окружения мне нужно проделать эти команды (одна картинка — один терминал):
 
-<SimpleCarousel client:only="react" carouselItemData={frontmatter.sliderTwo}/>
+<SimpleCarousel carouselItemData={frontmatter.sliderTwo} />
 
 **Примечание**: на картинке с сервером есть airgolang — это инструмент позволяющий делать автоматический перезапуск работы кода при внесении изменений в код. Называется она просто air, но я у себя её переименовал что бы было более понятно.
 
@@ -93,9 +128,9 @@ DockerHub это хостинг для образов контейнеров, е
 
 Вот содержимое моих докерфайлов:
 
-<SimpleCarousel client:only="react" carouselItemData={frontmatter.sliderThree}/>
+<SimpleCarousel carouselItemData={frontmatter.sliderThree} />
 
- их просто и честно скопипастил откуда-то из интернета.
+их просто и честно скопипастил откуда-то из интернета.
 
 Что же произойдёт при запуске этих файлов?
 
@@ -146,7 +181,7 @@ DockerHub это хостинг для образов контейнеров, е
 
 Настройка почти ни чем не отличается от mongo. Только теперь вместо image у нас build. build ищет dockerfile в указанной папке и запускает его.
 
- Единственная проблема которая возникла — у Go не работает перезагрузка программы при изменении кода. Вообще. Но она не работает только в Windows. Проверил работу в Ubuntu 20.04 LTS и всё работает идеально. К сожалению, альтернатив air не много и большая часть из них давно не обновлялась. Поэтому… грустно. Придётся на Windows вручную перезагружать весь контейнер. Благо он маленький.
+Единственная проблема которая возникла — у Go не работает перезагрузка программы при изменении кода. Вообще. Но она не работает только в Windows. Проверил работу в Ubuntu 20.04 LTS и всё работает идеально. К сожалению, альтернатив air не много и большая часть из них давно не обновлялась. Поэтому… грустно. Придётся на Windows вручную перезагружать весь контейнер. Благо он маленький.
 
 И в принципе это всё. Теперь, если мы пропишем docker-compose up в консоли у нас поднимется 4 контейнера.
 

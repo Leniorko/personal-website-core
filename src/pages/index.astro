@@ -14,10 +14,9 @@ let permalink = "https://example.com/";
 
 // Data Fetching: List all Markdown posts in the repo.
 
-let mdPosts = await Astro.glob("./posts/*.md");
-// let mdxPosts = await Astro.glob("./posts/*.mdx");
-let allPosts = [...mdPosts];
-allPosts = allPosts.sort(
+let mdxPosts = await Astro.glob("./posts/*.mdx");
+
+mdxPosts = mdxPosts.sort(
 	(a, b) =>
 		new Date(b.frontmatter.publishDate).valueOf() -
 		new Date(a.frontmatter.publishDate).valueOf()
@@ -39,7 +38,7 @@ allPosts = allPosts.sort(
 					<p class="m-0 text-xl text-gray-800">{description}</p>
 				</section>
 				<section aria-label="Blog post list">
-					{allPosts.map((p) => <BlogPostPreview post={p} />)}
+					{mdxPosts.map((p) => <BlogPostPreview post={p} />)}
 				</section>
 			</main>
 		</div>
