@@ -1,8 +1,8 @@
 ---
 // Component Imports
 import BaseHead from "../components/BaseHead.astro";
-import BlogHeader from "../components/BlogHeader.astro";
-import BlogPostPreview from "../components/BlogPostPreview.astro";
+// import BlogHeader from "../components/BlogHeader.astro";
+// import BlogPostPreview from "../components/BlogPostPreview.astro";
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -10,7 +10,6 @@ import BlogPostPreview from "../components/BlogPostPreview.astro";
 // All variables are available to use in the HTML template below.
 let title = "Leniorko's Place";
 let description = "Long alpha is coming";
-let permalink = "https://example.com/";
 
 // Data Fetching: List all Markdown posts in the repo.
 
@@ -20,14 +19,19 @@ let permalink = "https://example.com/";
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
-  </head><body class="selection:text-[#ff5d01] selection:bg-[#ff5d01]/10">
-    <BlogHeader />
-    <div class="mx-auto max-w-[65em] px-8 w-full">
-      There will be a beautifull landing.
-    </div>
-    <div class="mx-auto max-w-[65em] px-8 w-full">
-      <a href="./posts/">Check here for old blog posts</a>
+    <BaseHead description={description} title={title} />
+  </head>
+  <body>
+    <div class="min-w-full min-h-screen items-center content-center">
+      <h1>{title}</h1>
+      <p>
+        Frontend developer, future (at least I hope) Data Scientist, and IT
+        enthusiast in general.
+      </p>
+      <p>(Not a designer though)</p>
+      <a href="/personal-website-core/posts/"
+        >Check my old articles here (Russian language only)
+      </a>
     </div>
   </body>
 </html>
