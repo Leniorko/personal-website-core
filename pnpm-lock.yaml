@@ -13,16 +13,18 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-responsive-carousel: ^3.2.23
+  rollup: ^2.78.1
   tailwindcss: ^3.1.8
 
 dependencies:
-  preact: 10.10.3
+  preact: 10.10.6
   react-responsive-carousel: 3.2.23
+  rollup: 2.78.1
   tailwindcss: 3.1.8
 
 devDependencies:
-  '@astrojs/mdx': 0.10.0
-  '@astrojs/preact': 1.0.2_preact@10.10.3
+  '@astrojs/mdx': 0.10.0_rollup@2.78.1
+  '@astrojs/preact': 1.0.2_preact@10.10.6
   '@astrojs/react': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@astrojs/tailwind': 1.0.0
   '@babel/core': 7.18.10
@@ -84,19 +86,19 @@ packages:
       shiki: 0.10.1
       unified: 10.1.2
       unist-util-map: 3.1.1
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
       vfile: 5.3.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@astrojs/mdx/0.10.0:
+  /@astrojs/mdx/0.10.0_rollup@2.78.1:
     resolution: {integrity: sha512-nQcYzjPB8p0KWyP8g/8V6Rnxd7+5/VzNP4JLvQWUFs6mo7Akq98y4i+QjOl9/k5erzikl96Uul70MS/rjBheNQ==}
     engines: {node: ^14.18.0 || >=16.12.0}
     dependencies:
       '@astrojs/prism': 1.0.1
       '@mdx-js/mdx': 2.1.3
-      '@mdx-js/rollup': 2.1.3
+      '@mdx-js/rollup': 2.1.3_rollup@2.78.1
       acorn: 8.8.0
       es-module-lexer: 0.10.5
       github-slugger: 1.4.0
@@ -106,7 +108,7 @@ packages:
       remark-gfm: 3.0.1
       remark-smartypants: 2.0.0
       shiki: 0.10.1
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
       vfile: 5.3.4
     transitivePeerDependencies:
       - rollup
@@ -127,7 +129,7 @@ packages:
       vfile-message: 3.1.2
     dev: true
 
-  /@astrojs/preact/1.0.2_preact@10.10.3:
+  /@astrojs/preact/1.0.2_preact@10.10.6:
     resolution: {integrity: sha512-hJn1SuclnC15qzsZ1d0PkJGi03B2pCokpWl9+uydYJTtAPVqA5fDoaUhcX44wBWIJIUuQ9Dfk9+Ph8OY3D6ypw==}
     engines: {node: ^14.18.0 || >=16.12.0}
     peerDependencies:
@@ -136,8 +138,8 @@ packages:
       '@babel/core': 7.18.10
       '@babel/plugin-transform-react-jsx': 7.18.10_@babel+core@7.18.10
       babel-plugin-module-resolver: 4.1.0
-      preact: 10.10.3
-      preact-render-to-string: 5.2.2_preact@10.10.3
+      preact: 10.10.6
+      preact-render-to-string: 5.2.2_preact@10.10.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -511,19 +513,20 @@ packages:
       unified: 10.1.2
       unist-util-position-from-estree: 1.1.1
       unist-util-stringify-position: 3.0.2
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
       vfile: 5.3.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@mdx-js/rollup/2.1.3:
+  /@mdx-js/rollup/2.1.3_rollup@2.78.1:
     resolution: {integrity: sha512-KaX9GcZ63TDaLNH9UYYE94+naZQldV2IUzmMkDVOlPxDtTh8kcEn8l6/4W1P79wxZZbakSOFejTuaYmcstl5sA==}
     peerDependencies:
       rollup: '>=2'
     dependencies:
       '@mdx-js/mdx': 2.1.3
       '@rollup/pluginutils': 4.2.1
+      rollup: 2.78.1
       source-map: 0.7.4
       vfile: 5.3.4
     transitivePeerDependencies:
@@ -826,7 +829,7 @@ packages:
       recast: 0.20.5
       rehype: 12.0.1
       resolve: 1.22.1
-      rollup: 2.78.0
+      rollup: 2.78.1
       semver: 7.3.7
       shiki: 0.10.1
       sirv: 2.0.2
@@ -835,7 +838,7 @@ packages:
       strip-ansi: 7.0.1
       supports-esm: 1.0.0
       tsconfig-resolver: 3.0.1
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
       vfile: 5.3.4
       vite: 3.0.5
       yargs-parser: 21.1.1
@@ -857,7 +860,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.3
-      caniuse-lite: 1.0.30001378
+      caniuse-lite: 1.0.30001380
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -909,7 +912,7 @@ packages:
       chalk: 4.1.2
       cli-boxes: 3.0.0
       string-width: 5.1.2
-      type-fest: 2.18.0
+      type-fest: 2.18.1
       widest-line: 4.0.1
       wrap-ansi: 8.0.1
     dev: true
@@ -932,8 +935,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001378
-      electron-to-chromium: 1.4.224
+      caniuse-lite: 1.0.30001380
+      electron-to-chromium: 1.4.225
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.3
     dev: true
@@ -954,8 +957,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite/1.0.30001378:
-    resolution: {integrity: sha512-JVQnfoO7FK7WvU4ZkBRbPjaot4+YqxogSDosHv0Hv5mWpUESmN+UubMU6L/hGz8QlQ2aY5U0vR6MOs6j/CXpNA==}
+  /caniuse-lite/1.0.30001380:
+    resolution: {integrity: sha512-OO+pPubxx16lkI7TVrbFpde8XHz66SMwstl1YWpg6uMGw56XnhYVwtPIjvX4kYpzwMwQKr4DDce394E03dQPGg==}
     dev: true
 
   /ccount/2.0.1:
@@ -1171,8 +1174,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium/1.4.224:
-    resolution: {integrity: sha512-dOujC5Yzj0nOVE23iD5HKqrRSDj2SD7RazpZS/b/WX85MtO6/LzKDF4TlYZTBteB+7fvSg5JpWh0sN7fImNF8w==}
+  /electron-to-chromium/1.4.225:
+    resolution: {integrity: sha512-ICHvGaCIQR3P88uK8aRtx8gmejbVJyC6bB4LEC3anzBrIzdzC7aiZHY4iFfXhN4st6I7lMO0x4sgBHf/7kBvRw==}
     dev: true
 
   /emmet/2.3.6:
@@ -1724,7 +1727,7 @@ packages:
       html-void-elements: 2.0.1
       parse5: 6.0.1
       unist-util-position: 4.0.3
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
       vfile: 5.3.4
       web-namespaces: 2.0.1
       zwitch: 2.0.2
@@ -2068,7 +2071,7 @@ packages:
     dependencies:
       '@types/mdast': 3.0.10
       '@types/unist': 2.0.6
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
     dev: true
 
   /mdast-util-find-and-replace/2.2.1:
@@ -2076,7 +2079,7 @@ packages:
     dependencies:
       escape-string-regexp: 5.0.0
       unist-util-is: 5.1.1
-      unist-util-visit-parents: 5.1.0
+      unist-util-visit-parents: 5.1.1
     dev: true
 
   /mdast-util-from-markdown/1.2.0:
@@ -2234,7 +2237,7 @@ packages:
       unist-builder: 3.0.0
       unist-util-generated: 2.0.0
       unist-util-position: 4.0.3
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
     dev: true
 
   /mdast-util-to-markdown/1.3.0:
@@ -2245,7 +2248,7 @@ packages:
       longest-streak: 3.0.1
       mdast-util-to-string: 3.1.0
       micromark-util-decode-string: 1.0.2
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
       zwitch: 2.0.2
     dev: true
 
@@ -2945,17 +2948,17 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
-  /preact-render-to-string/5.2.2_preact@10.10.3:
+  /preact-render-to-string/5.2.2_preact@10.10.6:
     resolution: {integrity: sha512-ZBPfzWmHjasQIzysj72VYJ6oa2bphpxNvzLRdRj/XGFKyeTBJIDmoiKJlBGfxzU4TYL2CjpAWmcFIXcV+HQEBg==}
     peerDependencies:
       preact: '>=10'
     dependencies:
-      preact: 10.10.3
+      preact: 10.10.6
       pretty-format: 3.8.0
     dev: true
 
-  /preact/10.10.3:
-    resolution: {integrity: sha512-Gwwh0o531izatQQZu0yEX4mtfxVYsZJ4TT/o2VK3UZ/UuAWAWFnzsEfpZvad32vY3TKoRnSY2WqiDz2rH/viWQ==}
+  /preact/10.10.6:
+    resolution: {integrity: sha512-w0mCL5vICUAZrh1DuHEdOWBjxdO62lvcO++jbzr8UhhYcTbFkpegLH9XX+7MadjTl/y0feoqwQ/zAnzkc/EGog==}
     dev: false
 
   /preferred-pm/3.0.3:
@@ -3158,7 +3161,7 @@ packages:
     dependencies:
       retext: 8.1.0
       retext-smartypants: 5.2.0
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
     dev: true
 
   /reselect/4.1.6:
@@ -3196,7 +3199,7 @@ packages:
       '@types/nlcst': 1.0.0
       nlcst-to-string: 3.1.0
       unified: 10.1.2
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
     dev: true
 
   /retext-stringify/3.1.0:
@@ -3220,13 +3223,12 @@ packages:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
-  /rollup/2.78.0:
-    resolution: {integrity: sha512-4+YfbQC9QEVvKTanHhIAFVUFSRsezvQF8vFOJwtGfb9Bb+r014S+qryr9PSmw8x6sMnPkmFBGAvIFVQxvJxjtg==}
+  /rollup/2.78.1:
+    resolution: {integrity: sha512-VeeCgtGi4P+o9hIg+xz4qQpRl6R401LWEXBmxYKOV4zlF82lyhgh2hTZnheFUbANE8l2A41F458iwj2vEYaXJg==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
 
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -3520,8 +3522,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /type-fest/2.18.0:
-    resolution: {integrity: sha512-pRS+/yrW5TjPPHNOvxhbNZexr2bS63WjrMU8a+VzEBhUi9Tz1pZeD+vQz3ut0svZ46P+SRqMEPnJmk2XnvNzTw==}
+  /type-fest/2.18.1:
+    resolution: {integrity: sha512-UKCINsd4qiATXD6OIlnQw9t1ux/n2ld+Nl0kzPbCONhCaUIS/BhJbNw14w6584HCQWf3frBK8vmWnGZq/sbPHQ==}
     engines: {node: '>=12.20'}
     dev: true
 
@@ -3589,7 +3591,7 @@ packages:
     resolution: {integrity: sha512-0yDkppiIhDlPrfHELgB+NLQD5mfjup3a8UYclHruTJWmY74je8g+CIFr79x5f6AkmzSwlvKLbs63hC0meOMowQ==}
     dependencies:
       '@types/unist': 2.0.6
-      unist-util-visit: 4.1.0
+      unist-util-visit: 4.1.1
     dev: true
 
   /unist-util-stringify-position/3.0.2:
@@ -3602,19 +3604,19 @@ packages:
     resolution: {integrity: sha512-sA/nXwYRCQVRwZU2/tQWUqJ9JSFM1X3x7JIOsIgSzrFHcfVt6NkzDtKzyxg2cZWkCwGF9CO8x4QNZRJRMK8FeQ==}
     dev: true
 
-  /unist-util-visit-parents/5.1.0:
-    resolution: {integrity: sha512-y+QVLcY5eR/YVpqDsLf/xh9R3Q2Y4HxkZTp7ViLDU6WtJCEcPmRzW1gpdWDCDIqIlhuPDXOgttqPlykrHYDekg==}
+  /unist-util-visit-parents/5.1.1:
+    resolution: {integrity: sha512-gks4baapT/kNRaWxuGkl5BIhoanZo7sC/cUT/JToSRNL1dYoXRFl75d++NkjYk4TAu2uv2Px+l8guMajogeuiw==}
     dependencies:
       '@types/unist': 2.0.6
       unist-util-is: 5.1.1
     dev: true
 
-  /unist-util-visit/4.1.0:
-    resolution: {integrity: sha512-n7lyhFKJfVZ9MnKtqbsqkQEk5P1KShj0+//V7mAcoI6bpbUjh3C/OG8HVD+pBihfh6Ovl01m8dkcv9HNqYajmQ==}
+  /unist-util-visit/4.1.1:
+    resolution: {integrity: sha512-n9KN3WV9k4h1DxYR1LoajgN93wpEi/7ZplVe02IoB4gH5ctI1AaF2670BLHQYbwj+pY83gFtyeySFiyMHJklrg==}
     dependencies:
       '@types/unist': 2.0.6
       unist-util-is: 5.1.1
-      unist-util-visit-parents: 5.1.0
+      unist-util-visit-parents: 5.1.1
     dev: true
 
   /update-browserslist-db/1.0.5_browserslist@4.21.3:
@@ -3687,7 +3689,7 @@ packages:
       esbuild: 0.14.54
       postcss: 8.4.16
       resolve: 1.22.1
-      rollup: 2.78.0
+      rollup: 2.78.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
