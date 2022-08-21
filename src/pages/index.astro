@@ -1,6 +1,7 @@
 ---
 // Component Imports
 import BaseHead from "../components/BaseHead.astro";
+import SpaceCanvas from "../components/SpaceCanvas";
 // import BlogHeader from "../components/BlogHeader.astro";
 // import BlogPostPreview from "../components/BlogPostPreview.astro";
 
@@ -23,17 +24,18 @@ let description = "Long alpha is coming";
   </head>
   <body>
     <div
-      class="min-w-full min-h-screen flex flex-col justify-center items-center"
+      class="min-w-full min-h-screen relative flex flex-col justify-center items-center text-white"
     >
       <h1 class="mt-auto">{title}</h1>
-      <p>
+      <p class="mt-3">
         Frontend developer, future (at least I hope) Data Scientist, and IT
         enthusiast in general.
       </p>
-      <p>(Not a designer though)</p>
+      <p class="text-sm text-slate-400">(Not a designer though)</p>
       <a href="/personal-website-core/posts/" class="mt-auto mb-3"
         >Check my old articles here (Russian language only)
       </a>
+      <SpaceCanvas client:idle />
     </div>
   </body>
 </html>
