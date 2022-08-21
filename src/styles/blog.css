@@ -13,3 +13,7 @@ a {
 a:hover {
   @apply text-[#ff5d01] underline;
 }
+
+h1 {
+  @apply m-0 text-4xl font-bold;
+}
